@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>B2B SaaS IA Playground</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============= PASSWORD GATE ============= -->
+<div id="gate" class="gate">
+  <div class="gate__card">
+    <div class="gate__brand">IA Playground</div>
+    <h1 class="gate__title">Enter password to continue</h1>
+    <p class="gate__sub">This sandbox is shared by invitation only.</p>
+    <form id="gateForm" class="gate__form" autocomplete="off">
+      <input type="password" id="gateInput" placeholder="Password" autofocus />
+      <button type="submit">Unlock</button>
+    </form>
+    <div class="gate__error" id="gateError" hidden>Incorrect password.</div>
+  </div>
+</div>
+
+<div id="app" hidden>
+
+<!-- ============= WELCOME BANNER ============= -->
+<aside class="welcome" id="welcomeBanner">
+  <button class="welcome__close" id="welcomeClose" title="Dismiss">×</button>
+  <div class="welcome__inner">
+    <div class="welcome__eyebrow">Welcome — start here</div>
+    <h2 class="welcome__title">A sandbox for our site nav &amp; footer</h2>
+    <p class="welcome__lead">
+      Play with the IA. Try adding pages, renaming items, marking things "coming soon," and switching between launch-day and full-vision views. Nothing you do here affects the real site.
+    </p>
+    <ol class="welcome__steps">
+      <li><strong>Edit below, preview above.</strong> The site preview at the top updates as you type and click in the editor.</li>
+      <li><strong>Mark what's not ready.</strong> Click the yellow <span class="welcome__pill">SOON</span> pill on any nav item, footer link, or CTA to flag it as not-launching-day-1.</li>
+      <li><strong>Switch views.</strong> Use the <em>View</em> dropdown (top of editor) to flip between Launch only / Launch + Coming Soon (grayed) / Full Vision.</li>
+      <li><strong>Try a preset.</strong> The <em>Preset</em> dropdown loads alternate IA structures — Minimal, Enterprise, Product-led, Developer-first — to compare against the current site.</li>
+      <li><strong>Send your version back.</strong> If you land on a structure you like, click <em>Export JSON</em> at the top of the editor and email me the file.</li>
+    </ol>
+    <p class="welcome__foot">Best on desktop. Use <em>Reset to preset</em> any time to undo edits.</p>
+  </div>
+</aside>
+
+<!-- ============= LIVE PREVIEW ============= -->
+<section class="preview-wrap" id="previewWrap">
+  <div class="preview-label">LIVE PREVIEW</div>
+
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="site-header__inner">
+      <a class="site-logo" href="#" id="brandLogo">Liberate</a>
+      <nav class="site-nav" id="siteNav"></nav>
+      <div class="site-cta" id="siteCta"></div>
+    </div>
+    <div class="mega-panel" id="megaPanel" hidden></div>
+  </header>
+
+  <!-- FAUX PAGE BODY -->
+  <main class="faux-body">
+    <div class="faux-hero">
+      <div class="faux-eyebrow">B2B SaaS · sample page</div>
+      <h1 class="faux-h1">Hero headline goes here.</h1>
+      <p class="faux-sub">This is filler so you can see header and footer in real context. Edit the IA below.</p>
+      <div class="faux-buttons">
+        <button class="btn btn--primary">Primary CTA</button>
+        <button class="btn btn--ghost">Secondary</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="siteFooter"></footer>
+</section>
+
+
+<!-- ============= EDITOR ============= -->
+<section class="editor-wrap">
+  <div class="editor-head">
+    <h2>IA Editor</h2>
+    <div class="editor-head__actions">
+      <label class="inline-label">View
+        <select id="viewMode" class="select">
+          <option value="vision">Full vision (everything)</option>
+          <option value="soon" selected>Launch + Coming Soon (grayed)</option>
+          <option value="launch">Launch only (hide unlaunched)</option>
+        </select>
+      </label>
+      <label class="inline-label">Preset
+        <select id="presetSelect" class="select"></select>
+      </label>
+      <button class="btn btn--ghost" id="helpBtn" title="Show the welcome instructions again">? Help</button>
+      <button class="btn btn--ghost" id="resetBtn" title="Discard edits and reload the selected preset">Reset to preset</button>
+      <button class="btn btn--ghost" id="savePresetBtn" title="Save current IA as a named preset">Save as preset</button>
+      <button class="btn btn--ghost" id="renamePresetBtn" title="Rename selected custom preset">Rename</button>
+      <button class="btn btn--ghost btn--danger-soft" id="deletePresetBtn" title="Delete selected custom preset">Delete preset</button>
+      <button class="btn btn--ghost" id="exportBtn">Export JSON</button>
+      <button class="btn btn--ghost" id="importBtn">Import JSON</button>
+      <input type="file" id="importFile" accept="application/json" hidden />
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab is-active" data-tab="header">Header Nav</button>
+    <button class="tab" data-tab="footer">Footer</button>
+    <button class="tab" data-tab="layout">Layout & Style</button>
+    <button class="tab" data-tab="brand">Brand</button>
+  </div>
+
+  <!-- HEADER TAB -->
+  <div class="tab-panel is-active" data-panel="header">
+    <p class="panel-help">Top-level items show in the header. Add child items to create dropdowns or a mega menu (controlled in <strong>Layout & Style</strong>).</p>
+    <div id="navEditor" class="nav-editor"></div>
+    <button class="btn btn--ghost btn--add" id="addNavItem">+ Add top-level item</button>
+
+    <div class="panel-section">
+      <h3>Header CTAs</h3>
+      <div id="ctaEditor" class="cta-editor"></div>
+      <button class="btn btn--ghost btn--add" id="addCta">+ Add CTA</button>
+    </div>
+  </div>
+
+  <!-- FOOTER TAB -->
+  <div class="tab-panel" data-panel="footer">
+    <p class="panel-help">Footer columns appear left-to-right. Below them: social, contact, legal, copyright.</p>
+    <div id="footerColsEditor" class="footer-cols-editor"></div>
+    <button class="btn btn--ghost btn--add" id="addFooterCol">+ Add footer column</button>
+
+    <div class="panel-section grid-2">
+      <div>
+        <h3>Social Links</h3>
+        <div id="socialEditor" class="link-list"></div>
+        <button class="btn btn--ghost btn--add" id="addSocial">+ Add social link</button>
+      </div>
+      <div>
+        <h3>Legal Links</h3>
+        <div id="legalEditor" class="link-list"></div>
+        <button class="btn btn--ghost btn--add" id="addLegal">+ Add legal link</button>
+      </div>
+    </div>
+
+    <div class="panel-section grid-2">
+      <div>
+        <h3>Contact</h3>
+        <label class="field">
+          <span>Phone</span>
+          <input type="text" id="contactPhone" />
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input type="text" id="contactEmail" />
+        </label>
+        <label class="field">
+          <span>Address</span>
+          <input type="text" id="contactAddress" />
+        </label>
+      </div>
+      <div>
+        <h3>Newsletter signup</h3>
+        <label class="field">
+          <input type="checkbox" id="newsletterOn" />
+          <span>Show newsletter signup in footer</span>
+        </label>
+        <label class="field">
+          <span>Heading</span>
+          <input type="text" id="newsletterHeading" />
+        </label>
+        <label class="field">
+          <span>Placeholder</span>
+          <input type="text" id="newsletterPlaceholder" />
+        </label>
+        <h3 style="margin-top:24px">Copyright</h3>
+        <label class="field">
+          <span>Text</span>
+          <input type="text" id="copyrightText" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYOUT TAB -->
+  <div class="tab-panel" data-panel="layout">
+    <div class="panel-section grid-2">
+      <div>
+        <h3>Header</h3>
+        <label class="field">
+          <span>Dropdown style</span>
+          <select id="dropdownStyle" class="select">
+            <option value="simple">Simple dropdown (one column)</option>
+            <option value="mega">Mega menu (multi-column hover panel)</option>
+            <option value="none">No dropdowns (flatten to top level)</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Header alignment</span>
+          <select id="navAlign" class="select">
+            <option value="center">Logo left · nav center · CTA right</option>
+            <option value="left">Logo + nav left · CTA right</option>
+          </select>
+        </label>
+        <label class="field">
+          <input type="checkbox" id="stickyHeader" />
+          <span>Sticky header</span>
+        </label>
+        <label class="field">
+          <input type="checkbox" id="headerBorder" />
+          <span>Header bottom border</span>
+        </label>
+      </div>
+      <div>
+        <h3>Footer</h3>
+        <label class="field">
+          <span>Column width</span>
+          <select id="footerColWidth" class="select">
+            <option value="auto">Auto (equal columns)</option>
+            <option value="logo-wide">Logo column wide, link cols narrow</option>
+          </select>
+        </label>
+        <label class="field">
+          <input type="checkbox" id="footerShowLogo" />
+          <span>Show logo + tagline in footer</span>
+        </label>
+        <label class="field">
+          <span>Footer tagline</span>
+          <input type="text" id="footerTagline" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND TAB -->
+  <div class="tab-panel" data-panel="brand">
+    <div class="panel-section grid-2">
+      <div>
+        <h3>Brand</h3>
+        <label class="field">
+          <span>Brand name (logo text)</span>
+          <input type="text" id="brandName" />
+        </label>
+        <label class="field">
+          <span>Primary color</span>
+          <input type="color" id="colorPrimary" />
+        </label>
+        <label class="field">
+          <span>Header background</span>
+          <input type="color" id="colorHeaderBg" />
+        </label>
+        <label class="field">
+          <span>Header text</span>
+          <input type="color" id="colorHeaderText" />
+        </label>
+      </div>
+      <div>
+        <h3>Footer colors</h3>
+        <label class="field">
+          <span>Footer background</span>
+          <input type="color" id="colorFooterBg" />
+        </label>
+        <label class="field">
+          <span>Footer text</span>
+          <input type="color" id="colorFooterText" />
+        </label>
+        <label class="field">
+          <span>Footer link</span>
+          <input type="color" id="colorFooterLink" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</div><!-- /#app -->
+
+<script src="password.js"></script>
+<script>
+(async function gateInit() {
+  const KEY = "iaPlayground.unlocked.v1";
+  const gate = document.getElementById("gate");
+  const app = document.getElementById("app");
+  const form = document.getElementById("gateForm");
+  const input = document.getElementById("gateInput");
+  const errEl = document.getElementById("gateError");
+
+  function reveal() {
+    gate.style.display = "none";
+    app.hidden = false;
+    // Lazy-load the app's main script only after unlock
+    if (!document.getElementById("appScript")) {
+      const s = document.createElement("script");
+      s.id = "appScript";
+      s.src = "app.js";
+      document.body.appendChild(s);
+    }
+  }
+
+  async function sha256(str) {
+    const buf = new TextEncoder().encode(str);
+    const hash = await crypto.subtle.digest("SHA-256", buf);
+    return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  // Already unlocked this session?
+  if (sessionStorage.getItem(KEY) === "1") { reveal(); return; }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errEl.hidden = true;
+    const h = await sha256(input.value);
+    if (h === PASSWORD_HASH) {
+      sessionStorage.setItem(KEY, "1");
+      reveal();
+    } else {
+      errEl.hidden = false;
+      input.select();
+    }
+  });
+})();
+</script>
+</body>
+</html>
