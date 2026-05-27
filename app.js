@@ -94,6 +94,101 @@ const PRESETS = {
     copyright: "© 2026 Liberate inc. All rights reserved.",
   },
 
+  "liberate-proposed": {
+    brand: {
+      name: "Liberate",
+      colorPrimary: "#ff5a1f",
+      colorHeaderBg: "#ffffff",
+      colorHeaderText: "#0e1116",
+      colorFooterBg: "#0e1116",
+      colorFooterText: "#c9ccd2",
+      colorFooterLink: "#ffffff",
+    },
+    layout: {
+      dropdownStyle: "simple",
+      navAlign: "center",
+      stickyHeader: false,
+      headerBorder: true,
+      footerColWidth: "auto",
+      footerShowLogo: false,
+      footerTagline: "AI for insurance, built for action.",
+    },
+    nav: [
+      { label: "Platform", href: "#", children: [
+        { label: "Liberate Platform", href: "#" },
+        { label: "Multimodal AI", href: "#" },
+        { label: "Agent Orchestration", href: "#" },
+        { label: "Integrations", href: "#" },
+        { label: "Security", href: "#" },
+      ]},
+      { label: "Solutions", href: "#", children: [
+        { label: "For Carriers", href: "#" },
+        { label: "For Agencies & Brokers", href: "#" },
+        { label: "For TPAs, MGAs, and BPOs", href: "#" },
+        { label: "Claims Automation", href: "#" },
+        { label: "Servicing & Policy Administration", href: "#" },
+        { label: "Inbound & Outbound Sales", href: "#" },
+        { label: "Voice AI", href: "#" },
+      ]},
+      { label: "Resources", href: "#", children: [
+        { label: "Customer Stories", href: "#" },
+        { label: "Events", href: "#" },
+        { label: "Blog", href: "#" },
+        { label: "Liberate Labs", href: "#", comingSoon: true },
+      ]},
+      { label: "Company", href: "#", children: [
+        { label: "About Us", href: "#" },
+        { label: "Careers", href: "#" },
+        { label: "News", href: "#" },
+      ]},
+    ],
+    ctas: [
+      { label: "Request a demo", href: "#", style: "primary" },
+    ],
+    footerCols: [
+      { heading: "How it Works", links: [
+        { label: "Platform", href: "#" },
+        { label: "Integrations", href: "#" },
+        { label: "Security", href: "#" },
+      ]},
+      { heading: "Solutions", links: [
+        { label: "For Agencies & Brokers", href: "#" },
+        { label: "For Carriers", href: "#" },
+      ]},
+      { heading: "Resources", links: [
+        { label: "Resource Library", href: "#" },
+        { label: "Blog", href: "#" },
+        { label: "Glossary", href: "#" },
+      ]},
+      { heading: "Company", links: [
+        { label: "About Us", href: "#" },
+        { label: "News", href: "#" },
+        { label: "Careers", href: "#" },
+        { label: "Contact Us", href: "#" },
+      ]},
+    ],
+    social: [
+      { label: "LinkedIn", href: "#" },
+      { label: "Glassdoor", href: "#" },
+    ],
+    legal: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+      { label: "Cookies Settings", href: "#" },
+    ],
+    contact: {
+      phone: "1-866-GO-GET-AI (1-866-464-3824)",
+      email: "",
+      address: "",
+    },
+    newsletter: {
+      on: false,
+      heading: "Get the latest in your inbox",
+      placeholder: "you@company.com",
+    },
+    copyright: "© 2026 Liberate inc. All rights reserved.",
+  },
+
   minimal: {
     brand: { name: "Liberate", colorPrimary: "#ff5a1f", colorHeaderBg: "#ffffff", colorHeaderText: "#0e1116", colorFooterBg: "#0e1116", colorFooterText: "#c9ccd2", colorFooterLink: "#ffffff" },
     layout: { dropdownStyle: "none", navAlign: "left", stickyHeader: true, headerBorder: false, footerColWidth: "logo-wide", footerShowLogo: true, footerTagline: "AI for insurance, built for action." },
@@ -314,6 +409,7 @@ function updatePresetButtons() {
 
 const PRESET_LABELS = {
   liberate: "Liberate (current)",
+  "liberate-proposed": "RT Proposed",
   minimal: "Minimal (3 items)",
   "product-led": "Product-led",
   enterprise: "Enterprise",
