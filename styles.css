@@ -541,6 +541,83 @@ input, select { font-family: inherit; font-size: 14px; }
 /* link list (social / legal) */
 .link-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 6px; }
 
+/* ===== Heading items (rendered preview) ===== */
+.nav-dropdown .heading-item,
+.mega-col .heading-item {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9aa0a8;
+  padding: 14px 12px 4px;
+  cursor: default;
+  pointer-events: none;
+}
+.nav-dropdown .heading-item:first-child,
+.mega-col .heading-item:first-child { padding-top: 4px; }
+.footer-col .heading-item {
+  display: block;
+  pointer-events: none;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.45);
+  margin: 16px 0 4px;
+  font-weight: 600;
+}
+.footer-col .heading-item:first-child { margin-top: 0; }
+
+/* ===== Featured block (mega menu rightmost col) ===== */
+.mega-featured-col {
+  align-self: start;
+}
+.mega-featured {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #e6e7ea;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.mega-featured:hover { border-color: var(--c-primary); }
+.mega-featured__img {
+  width: 100%;
+  height: 110px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #fef3c7 0%, rgba(255,90,31,0.25) 100%);
+  background-size: cover;
+  background-position: center;
+}
+.mega-featured__eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+  margin-top: 4px;
+}
+.mega-featured__headline {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1d21;
+  line-height: 1.3;
+}
+.mega-featured__desc {
+  font-size: 13px;
+  color: #5b626c;
+  line-height: 1.4;
+}
+.mega-featured__cta {
+  font-size: 13px;
+  color: var(--c-primary);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
 /* ===== Coming-soon (rendered preview) ===== */
 .is-soon { opacity: 0.42; position: relative; }
 .is-soon::after {
@@ -601,6 +678,84 @@ input, select { font-family: inherit; font-size: 14px; }
   background: #fef3c7;
   border-color: #fcd34d;
   color: #b45309;
+}
+
+.btn--heading {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+.btn--heading:hover { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+.btn--heading.is-on {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.child-row.row-heading input.label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #4b5563;
+}
+.child-row.row-heading input.href { opacity: 0.4; }
+
+/* ===== Featured block editor ===== */
+.featured-editor {
+  margin-top: 10px;
+  margin-left: 26px;
+  padding: 12px;
+  background: #fff;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+}
+.featured-editor__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.featured-editor__head label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1d21;
+  cursor: pointer;
+}
+.featured-editor__hint {
+  font-size: 11px;
+  color: #9aa0a8;
+  margin-left: auto;
+}
+.featured-editor__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+.featured-editor__fields .full { grid-column: 1 / -1; }
+.featured-editor__fields label {
+  display: block;
+  font-size: 12px;
+  color: #4b5563;
+  font-weight: 500;
+}
+.featured-editor__fields input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-top: 3px;
+  box-sizing: border-box;
 }
 
 .btn--danger-soft { color: #b91c1c; }
@@ -680,6 +835,11 @@ optgroup { font-style: normal; font-weight: 600; }
   padding: 1px 6px;
   border-radius: 10px;
   vertical-align: 1px;
+}
+.welcome__pill--blue {
+  color: #1d4ed8;
+  border-color: #93c5fd;
+  background: #eff6ff;
 }
 .welcome__foot {
   margin: 8px 0 0;

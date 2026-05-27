@@ -94,7 +94,7 @@ const PRESETS = {
     copyright: "© 2026 Liberate inc. All rights reserved.",
   },
 
-  "liberate-proposed": {
+  "rt-standard": {
     brand: {
       name: "Liberate",
       colorPrimary: "#ff5a1f",
@@ -115,16 +115,27 @@ const PRESETS = {
     },
     nav: [
       { label: "Platform", href: "#", children: [
-        { label: "Liberate Platform", href: "#" },
+        { label: "Liberate Platform ", href: "#" },
+        { label: "PLatform Capabilities", href: "#", isHeading: true },
         { label: "Multimodal AI", href: "#" },
         { label: "Agent Orchestration", href: "#" },
         { label: "Integrations", href: "#" },
         { label: "Security", href: "#" },
-      ]},
+      ], featured: {
+        enabled: true,
+        eyebrow: "",
+        headline: "Why choose Liberate?",
+        description: "Learn why the world's leading insurance companies trust Liberate to run their businesses and delight their policyholders.",
+        imageUrl: "",
+        ctaLabel: "Read more",
+        ctaHref: "#",
+      }},
       { label: "Solutions", href: "#", children: [
+        { label: "Segments", href: "#", isHeading: true },
         { label: "For Carriers", href: "#" },
         { label: "For Agencies & Brokers", href: "#" },
         { label: "For TPAs, MGAs, and BPOs", href: "#" },
+        { label: "Use Cases", href: "#", isHeading: true },
         { label: "Claims Automation", href: "#" },
         { label: "Servicing & Policy Administration", href: "#" },
         { label: "Inbound & Outbound Sales", href: "#" },
@@ -135,7 +146,131 @@ const PRESETS = {
         { label: "Events", href: "#" },
         { label: "Blog", href: "#" },
         { label: "Liberate Labs", href: "#", comingSoon: true },
+        { label: "Podcast", href: "#", comingSoon: true },
+      ], featured: {
+        enabled: true,
+        eyebrow: "",
+        headline: "Featured Customer Story",
+        description: "Carrier X lowered LAE by X points without increasing headcount and delighting clients.",
+        imageUrl: "",
+        ctaLabel: "Learn how",
+        ctaHref: "#",
+      }},
+      { label: "Company", href: "#", children: [
+        { label: "About Us", href: "#" },
+        { label: "Careers", href: "#" },
+        { label: "News", href: "#" },
       ]},
+    ],
+    ctas: [
+      { label: "Request a demo", href: "#", style: "primary" },
+    ],
+    footerCols: [
+      { heading: "How it Works", links: [
+        { label: "Platform", href: "#" },
+        { label: "Integrations", href: "#" },
+        { label: "Security", href: "#" },
+      ]},
+      { heading: "Solutions", links: [
+        { label: "For Agencies & Brokers", href: "#" },
+        { label: "For Carriers", href: "#" },
+      ]},
+      { heading: "Resources", links: [
+        { label: "Resource Library", href: "#" },
+        { label: "Blog", href: "#" },
+        { label: "Glossary", href: "#" },
+      ]},
+      { heading: "Company", links: [
+        { label: "About Us", href: "#" },
+        { label: "News", href: "#" },
+        { label: "Careers", href: "#" },
+        { label: "Contact Us", href: "#" },
+      ]},
+    ],
+    social: [
+      { label: "LinkedIn", href: "#" },
+      { label: "Glassdoor", href: "#" },
+    ],
+    legal: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+      { label: "Cookies Settings", href: "#" },
+    ],
+    contact: {
+      phone: "1-866-GO-GET-AI (1-866-464-3824)",
+      email: "",
+      address: "",
+    },
+    newsletter: {
+      on: false,
+      heading: "Get the latest in your inbox",
+      placeholder: "you@company.com",
+    },
+    copyright: "© 2026 Liberate inc. All rights reserved.",
+  },
+
+  "rt-mega": {
+    brand: {
+      name: "Liberate",
+      colorPrimary: "#ff5a1f",
+      colorHeaderBg: "#ffffff",
+      colorHeaderText: "#0e1116",
+      colorFooterBg: "#0e1116",
+      colorFooterText: "#c9ccd2",
+      colorFooterLink: "#ffffff",
+    },
+    layout: {
+      dropdownStyle: "mega",
+      navAlign: "center",
+      stickyHeader: false,
+      headerBorder: true,
+      footerColWidth: "auto",
+      footerShowLogo: false,
+      footerTagline: "AI for insurance, built for action.",
+    },
+    nav: [
+      { label: "Platform", href: "#", children: [
+        { label: "Liberate Platform ", href: "#" },
+        { label: "PLatform Capabilities", href: "#", isHeading: true },
+        { label: "Multimodal AI", href: "#" },
+        { label: "Agent Orchestration", href: "#" },
+        { label: "Integrations", href: "#" },
+        { label: "Security", href: "#" },
+      ], featured: {
+        enabled: true,
+        eyebrow: "",
+        headline: "Why choose Liberate?",
+        description: "Learn why the world's leading insurance companies trust Liberate to run their businesses and delight their policyholders.",
+        imageUrl: "",
+        ctaLabel: "Read more",
+        ctaHref: "#",
+      }},
+      { label: "Solutions", href: "#", children: [
+        { label: "Segments", href: "#", isHeading: true },
+        { label: "For Carriers", href: "#" },
+        { label: "For Agencies & Brokers", href: "#" },
+        { label: "For TPAs, MGAs, and BPOs", href: "#" },
+        { label: "Use Cases", href: "#", isHeading: true },
+        { label: "Claims Automation", href: "#" },
+        { label: "Servicing & Policy Administration", href: "#" },
+        { label: "Inbound & Outbound Sales", href: "#" },
+        { label: "Voice AI", href: "#" },
+      ]},
+      { label: "Resources", href: "#", children: [
+        { label: "Customer Stories", href: "#" },
+        { label: "Events", href: "#" },
+        { label: "Blog", href: "#" },
+        { label: "Liberate Labs", href: "#", comingSoon: true },
+        { label: "Podcast", href: "#", comingSoon: true },
+      ], featured: {
+        enabled: true,
+        eyebrow: "",
+        headline: "Featured Customer Story",
+        description: "Carrier X lowered LAE by X points without increasing headcount and delighting clients.",
+        imageUrl: "",
+        ctaLabel: "Learn how",
+        ctaHref: "#",
+      }},
       { label: "Company", href: "#", children: [
         { label: "About Us", href: "#" },
         { label: "Careers", href: "#" },
@@ -409,7 +544,8 @@ function updatePresetButtons() {
 
 const PRESET_LABELS = {
   liberate: "Liberate (current)",
-  "liberate-proposed": "RT Proposed",
+  "rt-standard": "RT Preset — Standard",
+  "rt-mega": "RT Preset — Mega Menu",
   minimal: "Minimal (3 items)",
   "product-led": "Product-led",
   enterprise: "Enterprise",
@@ -487,11 +623,19 @@ function renderHeader() {
       const dd = document.createElement("div");
       dd.className = "nav-dropdown";
       visibleChildren.forEach((c) => {
-        const a = document.createElement("a");
-        a.href = c.href || "#";
-        a.textContent = c.label;
-        if (visibility(c) === "soon") a.classList.add("is-soon");
-        dd.appendChild(a);
+        if (c.isHeading) {
+          const h = document.createElement("div");
+          h.className = "heading-item";
+          if (visibility(c) === "soon") h.classList.add("is-soon");
+          h.textContent = c.label;
+          dd.appendChild(h);
+        } else {
+          const a = document.createElement("a");
+          a.href = c.href || "#";
+          a.textContent = c.label;
+          if (visibility(c) === "soon") a.classList.add("is-soon");
+          dd.appendChild(a);
+        }
       });
       wrap.appendChild(dd);
     }
@@ -527,11 +671,13 @@ function openMega(idx) {
   const item = state.nav[idx];
   if (!item) { closeMega(); return; }
   const visibleKids = (item.children || []).filter((c) => visibility(c) !== "hide");
-  if (!visibleKids.length) { closeMega(); return; }
+  const hasFeatured = !!(item.featured && item.featured.enabled);
+  if (!visibleKids.length && !hasFeatured) { closeMega(); return; }
 
   const grid = document.createElement("div");
   grid.className = "mega-grid";
-  const chunkSize = Math.max(1, Math.ceil(visibleKids.length / 4));
+  const numLinkCols = hasFeatured ? 3 : 4;
+  const chunkSize = visibleKids.length ? Math.max(1, Math.ceil(visibleKids.length / numLinkCols)) : 1;
   const cols = [];
   for (let i = 0; i < visibleKids.length; i += chunkSize) {
     cols.push(visibleKids.slice(i, i + chunkSize));
@@ -543,17 +689,74 @@ function openMega(idx) {
     h.textContent = i === 0 ? item.label : "";
     c.appendChild(h);
     col.forEach((link) => {
-      const a = document.createElement("a");
-      a.href = link.href || "#";
-      a.textContent = link.label;
-      if (visibility(link) === "soon") a.classList.add("is-soon");
-      c.appendChild(a);
+      if (link.isHeading) {
+        const hd = document.createElement("div");
+        hd.className = "heading-item";
+        if (visibility(link) === "soon") hd.classList.add("is-soon");
+        hd.textContent = link.label;
+        c.appendChild(hd);
+      } else {
+        const a = document.createElement("a");
+        a.href = link.href || "#";
+        a.textContent = link.label;
+        if (visibility(link) === "soon") a.classList.add("is-soon");
+        c.appendChild(a);
+      }
     });
     grid.appendChild(c);
   });
+
+  if (hasFeatured) {
+    const fc = document.createElement("div");
+    fc.className = "mega-col mega-featured-col";
+    fc.appendChild(renderFeaturedCard(item.featured));
+    grid.appendChild(fc);
+  }
+
   mega.innerHTML = "";
   mega.appendChild(grid);
   mega.classList.add("is-open");
+}
+
+function renderFeaturedCard(f) {
+  const a = document.createElement("a");
+  a.className = "mega-featured";
+  a.href = f.ctaHref || "#";
+  if (f.imageUrl) {
+    const img = document.createElement("div");
+    img.className = "mega-featured__img";
+    img.style.backgroundImage = `url('${(f.imageUrl || "").replace(/'/g, "\\'")}')`;
+    a.appendChild(img);
+  } else {
+    const placeholder = document.createElement("div");
+    placeholder.className = "mega-featured__img";
+    a.appendChild(placeholder);
+  }
+  if (f.eyebrow) {
+    const e = document.createElement("div");
+    e.className = "mega-featured__eyebrow";
+    e.textContent = f.eyebrow;
+    a.appendChild(e);
+  }
+  if (f.headline) {
+    const h = document.createElement("div");
+    h.className = "mega-featured__headline";
+    h.textContent = f.headline;
+    a.appendChild(h);
+  }
+  if (f.description) {
+    const d = document.createElement("div");
+    d.className = "mega-featured__desc";
+    d.textContent = f.description;
+    a.appendChild(d);
+  }
+  if (f.ctaLabel) {
+    const cta = document.createElement("div");
+    cta.className = "mega-featured__cta";
+    cta.textContent = f.ctaLabel + " →";
+    a.appendChild(cta);
+  }
+  return a;
 }
 
 function closeMega() {
@@ -606,11 +809,19 @@ function renderFooter() {
     col.links.forEach((l) => {
       const lVis = visibility(l);
       if (lVis === "hide") return;
-      const a = document.createElement("a");
-      a.href = l.href || "#";
-      a.textContent = l.label;
-      if (lVis === "soon") a.classList.add("is-soon");
-      el.appendChild(a);
+      if (l.isHeading) {
+        const h = document.createElement("div");
+        h.className = "heading-item";
+        if (lVis === "soon") h.classList.add("is-soon");
+        h.textContent = l.label;
+        el.appendChild(h);
+      } else {
+        const a = document.createElement("a");
+        a.href = l.href || "#";
+        a.textContent = l.label;
+        if (lVis === "soon") a.classList.add("is-soon");
+        el.appendChild(a);
+      }
     });
     cols.appendChild(el);
   });
@@ -732,12 +943,16 @@ function renderNavEditor() {
     kids.className = "nav-row__children";
     (item.children || []).forEach((child, cIdx) => {
       const c = document.createElement("div");
-      c.className = "child-row" + (child.comingSoon ? " row-soon" : "");
+      let cls = "child-row";
+      if (child.comingSoon) cls += " row-soon";
+      if (child.isHeading) cls += " row-heading";
+      c.className = cls;
       c.dataset.idx = cIdx;
       c.innerHTML = `
         <span class="drag-handle">⋮⋮</span>
-        <input type="text" class="label" value="${escape(child.label)}" placeholder="Label" />
-        <input type="text" class="href" value="${escape(child.href || "")}" placeholder="href" />
+        <input type="text" class="label" value="${escape(child.label)}" placeholder="${child.isHeading ? "Section heading" : "Label"}" />
+        <input type="text" class="href" value="${escape(child.href || "")}" placeholder="href" ${child.isHeading ? "disabled" : ""} />
+        <button class="btn btn--heading child-heading ${child.isHeading ? "is-on" : ""}" type="button" title="Toggle: link vs section heading">H</button>
         <button class="btn btn--soon child-soon ${child.comingSoon ? "is-on" : ""}" type="button" title="Coming soon">SOON</button>
         <button class="btn btn--xs btn--ghost child-up" type="button">↑</button>
         <button class="btn btn--xs btn--ghost child-down" type="button">↓</button>
@@ -750,6 +965,39 @@ function renderNavEditor() {
     addChild.textContent = "+ Add child";
     addChild.style.marginTop = "6px";
     kids.appendChild(addChild);
+
+    // ----- Featured block editor (mega menu only) -----
+    item.featured = item.featured || { enabled: false, eyebrow: "", headline: "", description: "", imageUrl: "", ctaLabel: "", ctaHref: "#" };
+    const fed = document.createElement("div");
+    fed.className = "featured-editor";
+    fed.innerHTML = `
+      <div class="featured-editor__head">
+        <label>
+          <input type="checkbox" class="feat-enable" ${item.featured.enabled ? "checked" : ""} />
+          Featured block
+        </label>
+        <span class="featured-editor__hint">Shows in mega menu as rightmost column</span>
+      </div>
+      <div class="featured-editor__fields" ${item.featured.enabled ? "" : "style=\"display:none\""}>
+        <label>Eyebrow<input class="feat-eyebrow" type="text" value="${escape(item.featured.eyebrow || "")}" placeholder="WHAT'S NEW" /></label>
+        <label>CTA label<input class="feat-ctalabel" type="text" value="${escape(item.featured.ctaLabel || "")}" placeholder="Read more" /></label>
+        <label class="full">Headline<input class="feat-headline" type="text" value="${escape(item.featured.headline || "")}" placeholder="The 2026 Insurance AI Report" /></label>
+        <label class="full">Description<input class="feat-desc" type="text" value="${escape(item.featured.description || "")}" placeholder="Short one-line description" /></label>
+        <label class="full">Image URL (optional)<input class="feat-image" type="text" value="${escape(item.featured.imageUrl || "")}" placeholder="https://… (leave blank for gradient placeholder)" /></label>
+        <label class="full">CTA href<input class="feat-ctahref" type="text" value="${escape(item.featured.ctaHref || "")}" placeholder="#" /></label>
+      </div>
+    `;
+    fed.querySelector(".feat-enable").addEventListener("change", (e) => {
+      item.featured.enabled = e.target.checked;
+      renderAll();
+    });
+    fed.querySelector(".feat-eyebrow").addEventListener("input", (e) => { item.featured.eyebrow = e.target.value; renderHeader(); });
+    fed.querySelector(".feat-headline").addEventListener("input", (e) => { item.featured.headline = e.target.value; renderHeader(); });
+    fed.querySelector(".feat-desc").addEventListener("input", (e) => { item.featured.description = e.target.value; renderHeader(); });
+    fed.querySelector(".feat-image").addEventListener("input", (e) => { item.featured.imageUrl = e.target.value; renderHeader(); });
+    fed.querySelector(".feat-ctalabel").addEventListener("input", (e) => { item.featured.ctaLabel = e.target.value; renderHeader(); });
+    fed.querySelector(".feat-ctahref").addEventListener("input", (e) => { item.featured.ctaHref = e.target.value; renderHeader(); });
+    kids.appendChild(fed);
 
     row.appendChild(kids);
 
@@ -776,6 +1024,7 @@ function renderNavEditor() {
       c.querySelector(".label").addEventListener("input", (e) => { item.children[cIdx].label = e.target.value; renderHeader(); });
       c.querySelector(".href").addEventListener("input", (e) => { item.children[cIdx].href = e.target.value; });
       c.querySelector(".child-soon").addEventListener("click", () => { item.children[cIdx].comingSoon = !item.children[cIdx].comingSoon; renderAll(); });
+      c.querySelector(".child-heading").addEventListener("click", () => { item.children[cIdx].isHeading = !item.children[cIdx].isHeading; renderAll(); });
       c.querySelector(".child-up").addEventListener("click", () => { moveItem(item.children, cIdx, -1); renderAll(); });
       c.querySelector(".child-down").addEventListener("click", () => { moveItem(item.children, cIdx, +1); renderAll(); });
       c.querySelector(".child-remove").addEventListener("click", () => { item.children.splice(cIdx, 1); renderAll(); });
@@ -843,11 +1092,15 @@ function renderFooterColsEditor() {
     const linksWrap = row.querySelector(".fcol-row__links");
     col.links.forEach((link, lIdx) => {
       const c = document.createElement("div");
-      c.className = "child-row" + (link.comingSoon ? " row-soon" : "");
+      let cls = "child-row";
+      if (link.comingSoon) cls += " row-soon";
+      if (link.isHeading) cls += " row-heading";
+      c.className = cls;
       c.innerHTML = `
         <span class="drag-handle">⋮⋮</span>
-        <input type="text" class="label" value="${escape(link.label)}" placeholder="Label" />
-        <input type="text" class="href" value="${escape(link.href || "")}" placeholder="href" />
+        <input type="text" class="label" value="${escape(link.label)}" placeholder="${link.isHeading ? "Section heading" : "Label"}" />
+        <input type="text" class="href" value="${escape(link.href || "")}" placeholder="href" ${link.isHeading ? "disabled" : ""} />
+        <button class="btn btn--heading heading ${link.isHeading ? "is-on" : ""}" type="button" title="Toggle: link vs section heading">H</button>
         <button class="btn btn--soon soon ${link.comingSoon ? "is-on" : ""}" type="button">SOON</button>
         <button class="btn btn--xs btn--ghost up" type="button">↑</button>
         <button class="btn btn--xs btn--ghost down" type="button">↓</button>
@@ -855,6 +1108,7 @@ function renderFooterColsEditor() {
       `;
       c.querySelector(".label").addEventListener("input", (e) => { link.label = e.target.value; renderFooter(); });
       c.querySelector(".href").addEventListener("input", (e) => { link.href = e.target.value; });
+      c.querySelector(".heading").addEventListener("click", () => { link.isHeading = !link.isHeading; renderAll(); });
       c.querySelector(".soon").addEventListener("click", () => { link.comingSoon = !link.comingSoon; renderAll(); });
       c.querySelector(".up").addEventListener("click", () => { moveItem(col.links, lIdx, -1); renderAll(); });
       c.querySelector(".down").addEventListener("click", () => { moveItem(col.links, lIdx, +1); renderAll(); });
