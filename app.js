@@ -115,8 +115,8 @@ const PRESETS = {
     },
     nav: [
       { label: "Platform", href: "#", children: [
-        { label: "Liberate Platform ", href: "#" },
-        { label: "PLatform Capabilities", href: "#", isHeading: true },
+        { label: "Liberate Platform", href: "#" },
+        { label: "Platform Capabilities", href: "#", isHeading: true },
         { label: "Multimodal AI", href: "#" },
         { label: "Agent Orchestration", href: "#" },
         { label: "Integrations", href: "#" },
@@ -230,8 +230,8 @@ const PRESETS = {
     },
     nav: [
       { label: "Platform", href: "#", children: [
-        { label: "Liberate Platform ", href: "#" },
-        { label: "PLatform Capabilities", href: "#", isHeading: true },
+        { label: "Liberate Platform", href: "#" },
+        { label: "Platform Capabilities", href: "#", isHeading: true },
         { label: "Multimodal AI", href: "#" },
         { label: "Agent Orchestration", href: "#" },
         { label: "Integrations", href: "#" },
