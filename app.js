@@ -546,8 +546,8 @@ function updatePresetButtons() {
 }
 
 const PRESET_LABELS = {
-  "rt-v2": "RT v. 2",
-  "rt-standard": "RT standard",
+  "rt-v2": "RT preset - v1",
+  "rt-standard": "RT preset - v2",
   liberate: "Liberate (current)",
   minimal: "Minimal (3 items)",
   "product-led": "Product-led",
