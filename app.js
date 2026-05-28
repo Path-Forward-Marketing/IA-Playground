@@ -209,7 +209,7 @@ const PRESETS = {
     copyright: "© 2026 Liberate inc. All rights reserved.",
   },
 
-  "rt-mega": {
+  "rt-v2": {
     brand: {
       name: "Liberate",
       colorPrimary: "#ff5a1f",
@@ -220,7 +220,7 @@ const PRESETS = {
       colorFooterLink: "#ffffff",
     },
     layout: {
-      dropdownStyle: "mega",
+      dropdownStyle: "simple",
       navAlign: "center",
       stickyHeader: false,
       headerBorder: true,
@@ -231,13 +231,15 @@ const PRESETS = {
     nav: [
       { label: "Platform", href: "#", children: [
         { label: "Liberate Platform", href: "#" },
-        { label: "Platform Capabilities", href: "#", isHeading: true },
-        { label: "Multimodal AI", href: "#" },
-        { label: "Agent Orchestration", href: "#" },
         { label: "Integrations", href: "#" },
         { label: "Security", href: "#" },
+        { label: "MULTIMODAL AI", href: "#", isHeading: true },
+        { label: "Voice", href: "#" },
+        { label: "SMS", href: "#" },
+        { label: "Email", href: "#" },
+        { label: "Digital", href: "#" },
       ], featured: {
-        enabled: true,
+        enabled: false,
         eyebrow: "",
         headline: "Why choose Liberate?",
         description: "Learn why the world's leading insurance companies trust Liberate to run their businesses and delight their policyholders.",
@@ -246,24 +248,23 @@ const PRESETS = {
         ctaHref: "#",
       }},
       { label: "Solutions", href: "#", children: [
-        { label: "Segments", href: "#", isHeading: true },
-        { label: "For Carriers", href: "#" },
-        { label: "For Agencies & Brokers", href: "#" },
-        { label: "For TPAs, MGAs, and BPOs", href: "#" },
-        { label: "Use Cases", href: "#", isHeading: true },
-        { label: "Claims Automation", href: "#" },
-        { label: "Servicing & Policy Administration", href: "#" },
-        { label: "Inbound & Outbound Sales", href: "#" },
-        { label: "Voice AI", href: "#" },
+        { label: "FOR SEGMENTS", href: "#", isHeading: true },
+        { label: "Carriers", href: "#" },
+        { label: "Agencies & Brokers", href: "#" },
+        { label: "TPAs, MGAs, and BPOs", href: "#" },
+        { label: "By Use Case", href: "#", isHeading: true },
+        { label: "For Claims Automation", href: "#" },
+        { label: "For Servicing & Policy Administration", href: "#" },
+        { label: "For Inbound & Outbound Sales", href: "#" },
       ]},
       { label: "Resources", href: "#", children: [
         { label: "Customer Stories", href: "#" },
         { label: "Events", href: "#" },
         { label: "Blog", href: "#" },
-        { label: "Liberate Labs", href: "#", comingSoon: true },
-        { label: "Podcast", href: "#", comingSoon: true },
+        { label: "Resource Library", href: "#" },
+        { label: "AI for Insurance Hub", href: "#" },
       ], featured: {
-        enabled: true,
+        enabled: false,
         eyebrow: "",
         headline: "Featured Customer Story",
         description: "Carrier X lowered LAE by X points without increasing headcount and delighting clients.",
@@ -480,7 +481,7 @@ const PRESETS = {
 };
 
 // ---------- STATE ----------
-let state = clone(PRESETS.liberate);
+let state = clone(PRESETS["rt-v2"]);
 state.viewMode = "soon"; // "vision" | "soon" | "launch"
 
 function clone(o) { return JSON.parse(JSON.stringify(o)); }
@@ -511,10 +512,12 @@ function populatePresetSelect(selected) {
   sel.innerHTML = "";
   const built = document.createElement("optgroup");
   built.label = "Built-in";
-  Object.keys(PRESETS).forEach((k) => {
+  // Iterate PRESET_LABELS so dropdown order is controlled by that array, not PRESETS insertion order
+  Object.keys(PRESET_LABELS).forEach((k) => {
+    if (!PRESETS[k]) return;
     const o = document.createElement("option");
     o.value = k;
-    o.textContent = PRESET_LABELS[k] || k;
+    o.textContent = PRESET_LABELS[k];
     built.appendChild(o);
   });
   sel.appendChild(built);
@@ -543,9 +546,9 @@ function updatePresetButtons() {
 }
 
 const PRESET_LABELS = {
+  "rt-v2": "RT v. 2",
+  "rt-standard": "RT standard",
   liberate: "Liberate (current)",
-  "rt-standard": "RT Preset — Standard",
-  "rt-mega": "RT Preset — Mega Menu",
   minimal: "Minimal (3 items)",
   "product-led": "Product-led",
   enterprise: "Enterprise",
@@ -1269,7 +1272,7 @@ function bindStaticEvents() {
     if (!confirm(`Delete preset "${customPresets[key]._label || key}"?`)) return;
     delete customPresets[key];
     saveCustomPresets();
-    populatePresetSelect("liberate");
+    populatePresetSelect("rt-v2");
   });
 
   document.getElementById("addNavItem").addEventListener("click", () => {
@@ -1390,7 +1393,7 @@ function initWelcomeBanner() {
 bindStaticEvents();
 initWelcomeBanner();
 const lastPreset = (() => { try { return localStorage.getItem(LS_LAST); } catch { return null; }})();
-populatePresetSelect(lastPreset && getPreset(lastPreset) ? lastPreset : "liberate");
+populatePresetSelect(lastPreset && getPreset(lastPreset) ? lastPreset : "rt-v2");
 if (lastPreset && getPreset(lastPreset)) {
   const p = getPreset(lastPreset);
   state = clone(p);
